@@ -1,0 +1,97 @@
+# GIT
+
+[[toc]]
+
+## Configurer le proxy sur GIT
+
+```bash
+git config –global http.proxy http[s]:userName:password@proxyaddress:port
+```
+
+## Configurer redirection d'url sur GIT
+
+```bash
+git config –global url.https://github.com/.insteadOf git:github.com/
+```
+
+**Exemple d'un fichier** `~/.gitconfig` : 
+
+```bash
+[url "https://github.com/"]
+    insteadOf = git://github.com/
+[url "https://github.com/"]
+    insteadOf = ssh://git@github.com/
+[http]
+    sslVerify = false
+    proxy = http://login:pwd@proxys:80
+[user]
+    name = Clement BERARD
+    email = mail@monmail.com
+[https]
+    sslVerify = false
+    proxy = http://login:pwd@proxy.com:80
+```
+
+## Retrouver l'état précedent des fichiers
+
+Ce sujet est une source constante d’incompréhension pour beaucoup d’utilisateurs de git, simplement parce qu’il y a plusieurs manières d’accomplir cette tache. Voici quelques commandes simples pour revenir en arière. Ainsi, pour revenir à l’état original d’un fichier :
+
+`git checkout <file>`
+
+Un problème possible est qu’un fichier et une branche portent le même nom. Comme la commande ‘checkout’ est utilisée à la fois pour changer l’état d’un fichier et changer de branche, il vous faudra utliser la syntaxe suivante (Merci , Norbauer)
+
+`git checkout – <file>`
+
+Si vous voulez supprimer tous les changements effectués, il y a une deux manières de faire.
+
+`git checkout -f ou git reset –HARD`
+
+Une fois ces commandes effectuées, vous perdrez tout le travail que vous n’avez pas ajouté à votre répertoire courant, assurez vous de les utiliser avec soin.
+
+De plus, garder à l’esprit que ‘git revert’ n’est pas équivalent à ‘svn revert’! git-revert est utilisé pour inverser les ajouts (commit), une prochaine astuce traitera de ce sujet.
+
+## Rebase d'une branche
+
+```bash
+git checkout feature_branch
+git rebase master
+```
+
+Et la il peut y avoir des conflits. Il faut les corriger puis : 
+
+```bash
+git rebase --continue
+```
+
+Enfin, quand il n'y a plus de conflit :
+
+```bash
+git checkout master
+git merge --squash feature_branch
+```
+
+Et un commit/push sur la master et c'est fini !
+
+## Push en supprimant l'historique (et donc preserver de l'espace disque)
+
+```bash
+git checkout --orphan newBranch
+git add -A
+git commit
+git branch -D master
+git branch -m master
+git push -f origin master
+git gc --aggressive --prune=all
+```
+
+## Keep your feature branch up to date (Rebase automatique)
+
+Function (alias) pour rebase une branche sur la dernière version de master
+
+Put this function in your .bashrc or .zshrc. It automates it for you.
+
+```bash
+function rebaseMaster(){
+  git fetch && git checkout master && git pull && git checkout - && git rebase master
+}
+```
