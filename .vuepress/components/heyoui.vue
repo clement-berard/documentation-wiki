@@ -1,6 +1,6 @@
 <template>
    <div class="component-test">
-       <div>
+       <div class="search-box">
            <input type="text" v-model="inputModel" placeholder="Ecris du texte ici..." />
        </div>
        <div>
@@ -19,8 +19,14 @@
     }
 </script>
 
-<style>
-    .component-test {
-        text-align: center;
-    }
+<style scoped>
+.component-test{
+    text-align: center;
+}
+.search-box {
+    margin: 0 auto;
+}
+.search-box input {
+    background: none;
+}
 </style>

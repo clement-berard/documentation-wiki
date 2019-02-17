@@ -1,7 +1,5 @@
-// const path = require('path');
-// console.log("pathd", path.resolve(__dirname + '/components'))
-// const dd = path.resolve(__dirname + '/components');
-// console.log("dd", dd)
+const BACK_TO_HOME_TEXT = 'Home';
+
 module.exports = {
     title: 'Clément BERARD - Documentation',
     themeConfig: {
@@ -9,7 +7,7 @@ module.exports = {
         nav: [
             {text: 'Home', link: '/'},
             {text: 'Source Code', link: 'https://github.com/clement-berard/documentation-wiki'},
-            {text: 'MyWebsite', link: 'https://clementberard.com'},
+            {text: 'Website', link: 'https://clementberard.com'},
             {text: 'Github', link: 'https://github.com/clement-berard'},
             {text: 'NPM', link: 'https://www.npmjs.com/~clement-berard'},
             {text: 'Docker', link: 'https://hub.docker.com/u/keload/'},
@@ -17,21 +15,16 @@ module.exports = {
         ],
         sidebarDepth: 0,
         sidebar: {
+            
             '/it/': [
-                ['/', '< Back to Home'],
+                ['/', BACK_TO_HOME_TEXT],
                 {
-                    title: 'Dev',
+                    title: 'Development',
                     collapsable: false,
                     children: [
                         ['git/', 'Git'],
                         ['dbs/', 'Databases'],
-                    ]
-                },
-                {
-                    title: 'NodeJs',
-                    collapsable: false,
-                    children: [
-                        ['nodejs/tools', 'Tools']
+                        ['nodejs/tools', 'NodeJs']
                     ]
                 },
                 {
@@ -63,7 +56,7 @@ module.exports = {
             ],
 
             '/domotique/': [
-                ['/', '< Back to Home'],
+                ['/', BACK_TO_HOME_TEXT],
 
             ],
             '/': [
@@ -76,7 +69,7 @@ module.exports = {
                         ['/domotique/', 'Domotique'],
                     ]
                 }
-            ]
+            ],
         }
     }
 }

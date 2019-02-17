@@ -25,7 +25,7 @@ lang: fr-FR
 
 Objectifs : créer une image personalisée avec les composants pour builder le front.
 
-Lien de l'image parente Docker utilisée : https://github.com/jasonwyatt/docker-ruby2.2
+Lien de l'image parente Docker utilisée : [https://github.com/jasonwyatt/docker-ruby2.2](https://github.com/jasonwyatt/docker-ruby2.2)
 
 ```bash
 docker pull jasonwyatt/ruby2.2

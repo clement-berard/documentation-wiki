@@ -30,7 +30,7 @@ Installe les outils suivant :
 * ATL and MFC (optional, off by default)
 * C++ Build tools specific command prompts
 
-> https://www.npmjs.com/package/windows-build-tools
+[https://www.npmjs.com/package/windows-build-tools](https://www.npmjs.com/package/windows-build-tools)
 
 ## NVM
 
@@ -49,7 +49,7 @@ function nvm
 end
 ```
 
-> https://github.com/creationix/nvm/issues/303#issuecomment-121086278
+[https://github.com/creationix/nvm/issues/303#issuecomment-121086278](https://github.com/creationix/nvm/issues/303#issuecomment-121086278)
 
 ## Installation
 
@@ -75,4 +75,4 @@ curl -0 -L https://npmjs.com/install.sh | sudo sh
 
 Links : 
 
-- https://nodesource.com/blog/installing-node-js-tutorial-debian-linux/
+- [https://nodesource.com/blog/installing-node-js-tutorial-debian-linux/](https://nodesource.com/blog/installing-node-js-tutorial-debian-linux/)

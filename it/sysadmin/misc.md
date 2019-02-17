@@ -21,7 +21,7 @@ $ echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 $ chsh -s `which fish`
 ```
 
-> https://gist.github.com/henriquea/ff88acec54b86f268466
+[https://gist.github.com/henriquea/ff88acec54b86f268466](https://gist.github.com/henriquea/ff88acec54b86f268466)
 
 ### Liens
 

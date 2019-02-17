@@ -36,15 +36,20 @@ git config –global url.https://github.com/.insteadOf git:github.com/
 
 Ce sujet est une source constante d’incompréhension pour beaucoup d’utilisateurs de git, simplement parce qu’il y a plusieurs manières d’accomplir cette tache. Voici quelques commandes simples pour revenir en arière. Ainsi, pour revenir à l’état original d’un fichier :
 
-`git checkout <file>`
-
+```bash
+git checkout <file>
+```
 Un problème possible est qu’un fichier et une branche portent le même nom. Comme la commande ‘checkout’ est utilisée à la fois pour changer l’état d’un fichier et changer de branche, il vous faudra utliser la syntaxe suivante (Merci , Norbauer)
 
-`git checkout – <file>`
+```bash
+git checkout – <file>
+```
 
 Si vous voulez supprimer tous les changements effectués, il y a une deux manières de faire.
 
-`git checkout -f ou git reset –HARD`
+```bash
+git checkout -f ou git reset –HARD
+```
 
 Une fois ces commandes effectuées, vous perdrez tout le travail que vous n’avez pas ajouté à votre répertoire courant, assurez vous de les utiliser avec soin.
 
@@ -74,13 +79,13 @@ git rebase --abort
 
 *Use Case* : 
 
-je créé une branche `feat-1` à partir de `master` et j'y apporte des modifications. 
+- Je créé une branche `feat-1` à partir de `master` et j'y apporte des modifications
 
-Je créé une autre branche `feat-2` à partir de `feat-1`.
+- Je créé une autre branche `feat-2` à partir de `feat-1`
 
-Pour mettre à jour `feat-1`, je dois la rebase sur `master`.
+- Pour mettre à jour `feat-1`, je dois la rebase sur `master`
 
-Pour mettre à jour `feat-2`, je dois la rebase sur `feat-1`.
+- Pour mettre à jour `feat-2`, je dois la rebase sur `feat-1`
 
 ::: warning
 Bien garder toutes vos branches en local
@@ -109,7 +114,7 @@ git checkout master
 git merge --squash feature_branch
 ```
 
-Et un commit/push sur la master et c'est fini !
+Et un commit/push sur la master et c'est fini :tada:
 
 ## Push en supprimant l'historique (et donc preserver de l'espace disque)
 
