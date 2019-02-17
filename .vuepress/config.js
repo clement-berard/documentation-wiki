@@ -1,3 +1,7 @@
+// const path = require('path');
+// console.log("pathd", path.resolve(__dirname + '/components'))
+// const dd = path.resolve(__dirname + '/components');
+// console.log("dd", dd)
 module.exports = {
     title: 'Clément BERARD - Documentation',
     themeConfig: {

@@ -50,7 +50,9 @@ Une fois ces commandes effectuées, vous perdrez tout le travail que vous n’av
 
 De plus, garder à l’esprit que ‘git revert’ n’est pas équivalent à ‘svn revert’! git-revert est utilisé pour inverser les ajouts (commit), une prochaine astuce traitera de ce sujet.
 
-## Rebase d'une branche
+## Rebase
+
+### Rebase clasique
 
 ```bash
 git checkout feature_branch
@@ -63,7 +65,44 @@ Et la il peut y avoir des conflits. Il faut les corriger puis :
 git rebase --continue
 ```
 
-Enfin, quand il n'y a plus de conflit :
+Si vous voulez stopper le `rebase` en cours de route : 
+
+```bash
+git rebase --abort
+```
+#### Sur une autre branche que Master
+
+*Use Case* : 
+
+je créé une branche `feat-1` à partir de `master` et j'y apporte des modifications. 
+
+Je créé une autre branche `feat-2` à partir de `feat-1`.
+
+Pour mettre à jour `feat-1`, je dois la rebase sur `master`.
+
+Pour mettre à jour `feat-2`, je dois la rebase sur `feat-1`.
+
+::: warning
+Bien garder toutes vos branches en local
+:::
+
+```bash
+git checkout feat-1
+git rebase origin/master
+
+git checkout feat-2
+git rebase --onto origin/master feat-1
+```
+
+### Rebase interractif
+
+```bash
+git rebase -i master
+```
+
+
+
+## Merge
 
 ```bash
 git checkout master
@@ -94,4 +133,37 @@ Put this function in your .bashrc or .zshrc. It automates it for you.
 function rebaseMaster(){
   git fetch && git checkout master && git pull && git checkout - && git rebase master
 }
+```
+
+## Git Config
+
+### Alias
+
+> https://git-scm.com/book/fr/v2/Les-bases-de-Git-Les-alias-Git
+
+```bash
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+```
+
+### My config
+
+Content of `~/Users/myname/.gitconfig`
+
+```bash
+[user]
+        name = Clément BERARD
+        email = myname@clementberard.com
+[core]
+        excludesfile = /Users/myname/.gitignore_global
+        autocrlf = input
+[alias]
+        co = checkout
+        st = status
+        pof = "push origin --force"
+        po = "push origin"
+        br = branch
+        ci = commit
 ```
