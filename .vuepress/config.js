@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Clément BERARD - Doc&Tips',
+    title: 'Clément BERARD - Documentation',
     themeConfig: {
         // displayAllHeaders: true, // Default: false
         nav: [
