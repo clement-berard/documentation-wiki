@@ -139,7 +139,7 @@ function rebaseMaster(){
 
 ### Alias
 
-> https://git-scm.com/book/fr/v2/Les-bases-de-Git-Les-alias-Git
+ℹ️ [Doc Git](https://git-scm.com/book/fr/v2/Les-bases-de-Git-Les-alias-Git)
 
 ```bash
 $ git config --global alias.co checkout
@@ -161,9 +161,45 @@ Content of `~/Users/myname/.gitconfig`
         autocrlf = input
 [alias]
         co = checkout
+        cob = checkout -b
         st = status
         pof = "push origin --force"
         po = "push origin"
         br = branch
-        ci = commit
+        ci = "commit --message"
+        last = "log -n 1 --pretty=format:\"%H\""
 ```
+
+## Useful commands
+
+__Hash du dernier commit__
+
+*Exemple sur la branche `origin/master`*
+
+```bash
+git log -n 1 --pretty=format:"%H" master
+```
+__Squash de tous les commits d'une branche__
+
+ℹ️ Utilisation de `git-extra`
+
+*Avoir toutes ses branches à jour en local*
+
+```bash
+# recuperation du dernier commit de master
+
+git log -n 1 --pretty=format:"%H" master
+
+# le dernier commit est b3357c607c3a49b532bffec7a6b5fb62841262c5
+
+git squash b3357c607c3a49b532bffec7a6b5fb62841262c5 "nouveau nom de commit"
+```
+
+
+## Useful tools
+
+> `git-extra`
+
+- [https://github.com/tj/git-extras](https://github.com/tj/git-extras) | [Commands](https://github.com/tj/git-extras/blob/master/Commands.md)
+- installation MacOS `brew install git-extras`
+
