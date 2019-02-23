@@ -2,11 +2,13 @@ const BACK_TO_HOME_TEXT = 'Home';
 
 module.exports = {
     title: 'Clément BERARD - Documentation',
+    serviceWorker: true,
     themeConfig: {
-        // displayAllHeaders: true, // Default: false
+        repo: "clement-berard/documentation-wiki",
+        repoLabel: "Repo",
+        lastUpdated: "Last Updated",
         nav: [
             {text: 'Home', link: '/'},
-            {text: 'Source Code', link: 'https://github.com/clement-berard/documentation-wiki'},
             {text: 'Website', link: 'https://clementberard.com'},
             {text: 'Github', link: 'https://github.com/clement-berard'},
             {text: 'NPM', link: 'https://www.npmjs.com/~clement-berard'},
