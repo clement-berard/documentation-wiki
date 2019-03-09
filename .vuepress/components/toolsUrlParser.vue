@@ -25,6 +25,20 @@
           <summary>All Result</summary>
           <vue-json-pretty :data="result.allData"></vue-json-pretty>
         </details>
+        <details>
+          <summary>Links</summary>
+          <div class="for-links">
+            <div v-for="link in getLinksFormat">
+              <div class="title">{{link.name}}</div>
+              <input
+                type="text"
+                class="input-for-link"
+                :value="link.code"
+                @focus="$event.target.select()"
+              >
+            </div>
+          </div>
+        </details>
       </div>
     </div>
   </div>
@@ -73,7 +87,6 @@ export default {
           }
         } catch (e) {
           this.error = e.message;
-          console.log("fdsafds", e);
         }
 
         this.loader = false;
@@ -83,12 +96,35 @@ export default {
       this.result = false;
       this.error = false;
     }
+  },
+  computed: {
+    getLinksFormat() {
+      return [
+        {
+          name: "Markdown",
+          code: `[${this.result.title}](${this.inputUrl})`
+        },
+        {
+          name: "HTML",
+          code: `<a href="${this.inputUrl}">${this.result.title}</a>`
+        },
+        {
+          name: "DokuWiki",
+          code: `[[${this.inputUrl}|${this.result.title}]]`
+        },
+        {
+          name: "MediaWiki",
+          code: `[${this.inputUrl} ${this.result.title}]`
+        }
+      ];
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .tools-url-parser {
+  margin-top: 20px;
   .loader {
     text-align: center;
     margin-top: 15px;
@@ -112,6 +148,19 @@ export default {
         summary {
           cursor: pointer;
         }
+        .for-links {
+          padding: 5px;
+          .title {
+            font-weight: 400;
+            color: #3eaf7c;
+            font-style: italic;
+            margin: 10px 0 5px 0;
+          }
+        }
+      }
+      .input-for-link {
+        width: 100%;
+        font-family: "Courier New", Courier, monospace;
       }
     }
   }
