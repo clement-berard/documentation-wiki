@@ -116,7 +116,9 @@ git merge --squash feature_branch
 
 Et un commit/push sur la master et c'est fini :tada:
 
-## Push en supprimant l'historique (et donc preserver de l'espace disque)
+## Push en supprimant l'historique
+
+_et donc preserver de l'espace disque_
 
 ```bash
 git checkout --orphan newBranch

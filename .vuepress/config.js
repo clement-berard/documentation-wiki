@@ -37,6 +37,7 @@ module.exports = {
                         ['sysadmin/docker', 'Docker'],
                         ['sysadmin/server_web/', 'Web Server'],
                         ['sysadmin/misc', 'Misc'],
+                        ['sysadmin/raspberry', 'Raspberry'],
                     ]
                 },
                 {
