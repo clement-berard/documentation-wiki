@@ -56,6 +56,13 @@ module.exports = {
                         ['resources/site-template', 'Templating']
                     ]
                 },
+                {
+                    title: 'Tools',
+                    collapsable: false,
+                    children: [
+                        ['tools/tools-main.md', 'All tools']
+                    ]
+                },
             ],
 
             '/domotique/': [
