@@ -7,6 +7,12 @@ lang: fr-FR
 
 [[toc]]
 
+## Software
+
+- [Jeedom](./jeedom.md)
+- [Grafana](./grafana.md)
+- [InfluxDB](./influxdb.md)
+
 ## Configuration
 
 ### Setup Wifi

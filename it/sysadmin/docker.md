@@ -107,3 +107,21 @@ docker rmi -f $(docker images | grep "^<none>" | awk '{print $"3"}')
 - [Gérer son environnement de développement avec Docker](https://fr.slideshare.net/julien.dubois/grer-son-environnement-de-dveloppement-avec-docker)
 - [Publishing a Static AngularJS Application with Docker](http://rdn-consulting.com/blog/2014/11/29/publishing-a-static-angularjs-application-with-docker/)
 
+
+## MAJ 2019
+
+- Install Portainer : 
+
+```bash 
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+```
+
+https://blog.codeship.com/docker-guis/
+
+- Lancer un container : 
+
+```bash 
+docker run -it -d dbb81800ec29
+```
+
+ou `dbb81800ec29` est l'ID de l'image
