@@ -76,3 +76,21 @@ curl -0 -L https://npmjs.com/install.sh | sudo sh
 Links : 
 
 - [https://nodesource.com/blog/installing-node-js-tutorial-debian-linux/](https://nodesource.com/blog/installing-node-js-tutorial-debian-linux/)
+
+## Tooling
+
+### Eslint
+
+Disable rules
+
+```js 
+// eslint-disable-next-line consistent-return
+
+/* eslint array-callback-return: "off" */
+
+/* eslint no-console: "off", consistent-return: "off", prefer-promise-reject-errors: "off" */
+```
+
+- [https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-abusive-eslint-disable.md
+](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/master/docs/rules/no-abusive-eslint-disable.md
+)
