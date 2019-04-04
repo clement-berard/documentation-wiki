@@ -50,17 +50,6 @@ Vous pouvez maintenant vous connectez à la DB depuis votre reseau local avec le
 ⚠ Les requêtes sont à éxécuter dans l'orde
 :::
 
-Pour les scripts suivant, nous allons utiliser une fonction pour "slugifier" les noms des commandes :
-
-<details>
-    <summary>Voir le script SQL</summary>
-
-<<< @/domotique/jeedom/fn_slugify.sql
-
-</details>
-
-Source : [https://gist.github.com/jareis/847e7e1523e4ea8f8676](https://gist.github.com/jareis/847e7e1523e4ea8f8676)
-
 Création d'une `view` pour fusionner les deux tables d'historique présentes de base dans Jeedom, à savoir : 
 
 - `history` qui correspond à l'historique recent
@@ -85,17 +74,16 @@ CREATE VIEW `fullEqLogiq` AS
     SELECT 
         `t_eqLogic`.`id` AS `eqLogicId`,
         `t_eqLogic`.`name` AS `eqLogicName`,
-        SLUGIFY(`t_eqLogic`.`name`) AS `eqLogicNameSlug`,
         `t_object`.`id` AS `objectId`,
         `t_object`.`name` AS `objectName`,
-        SLUGIFY(`t_object`.`name`) AS `objectNameSlug`,
         IF(ISNULL(`t_object`.`id`),
-            CONCAT('NO_OBJECT',
-                    '___',
-                    SLUGIFY(`t_eqLogic`.`name`)),
-            CONCAT(SLUGIFY(`t_object`.`name`),
-                    '___',
-                    SLUGIFY(`t_eqLogic`.`name`))) AS `fullSlug`
+            CONCAT('[', `t_eqLogic`.`name`, ']'),
+            CONCAT('[',
+                    `t_object`.`name`,
+                    ']',
+                    '[',
+                    `t_eqLogic`.`name`,
+                    ']')) AS `fullSlug`
     FROM
         (`eqLogic` `t_eqLogic`
         LEFT JOIN `object` `t_object` ON ((`t_eqLogic`.`object_id` = `t_object`.`id`)))
@@ -110,8 +98,9 @@ CREATE VIEW `fullCmd` AS
         `t_cmd`.`name` AS `name`,
         `t_fullEqLogiq`.`fullSlug` AS `objectEqLogicSlug`,
         CONCAT(`t_fullEqLogiq`.`fullSlug`,
-                '_',
-                SLUGIFY(`t_cmd`.`name`)) AS `fullSlug`
+                '[',
+                `t_cmd`.`name`,
+                ']') AS `fullSlug`
     FROM
         (`cmd` `t_cmd`
         JOIN `fullEqLogiq` `t_fullEqLogiq` ON ((`t_cmd`.`eqLogic_id` = `t_fullEqLogiq`.`eqLogicId`)))
