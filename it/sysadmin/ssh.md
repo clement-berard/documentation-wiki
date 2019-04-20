@@ -75,8 +75,8 @@ Et pour se connecter `ssh mon_serveur.local`
 
 ### Liens utiles
 
-- [https://www.ssh.com/ssh/sshd_config/](https://www.ssh.com/ssh/sshd_config/)
-- [https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/](https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/)
+- https://www.ssh.com/ssh/sshd_config/
+- https://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/
 
 ## Permissions
 
@@ -87,12 +87,19 @@ chmod 700 ~/.ssh
 chmod 644 ~/.ssh/authorized_keys
 chmod 644 ~/.ssh/known_hosts
 chmod 644 ~/.ssh/config
-chmod 600 ~/.ssh/id_rsa
+chmod 400 ~/.ssh/id_rsa
 chmod 644 ~/.ssh/id_rsa.pub
 ```
+
+AIO command
+
+```bash 
+chmod 700 ~/.ssh;chmod 400 ~/.ssh/*;chmod 644 ~/.ssh/*.pub;chmod 644 ~/.ssh/authorized_keys;chmod 644 ~/.ssh/known_hosts;chmod 644 ~/.ssh/config
+```
+
 ## Setting up ssh config file with id_rsa through tunnel
 
-Source : [https://superuser.com/a/525750](https://superuser.com/a/525750)
+Source : https://superuser.com/a/525750
 
 ## Troubleshooting
 
@@ -115,8 +122,8 @@ sudo synoservicectl --restart sshd
 
 :information_source: Si l'accès est bloqué après cette commande, désactiver puis réactiver SSH depuis l'interface DSM.
 
-Source : [https://forum.synology.com/enu/viewtopic.php?t=126166](https://forum.synology.com/enu/viewtopic.php?t=126166)
+Source : https://forum.synology.com/enu/viewtopic.php?t=126166
 
 ## References
 
-- [Documentation officielle SSH](https://www.ssh.com/ssh/keygen/)
+- https://www.ssh.com/ssh/keygen/

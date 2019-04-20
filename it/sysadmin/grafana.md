@@ -18,7 +18,7 @@ de manière honteusement simple des seuils d’alertes et les actions associées
 - Suivre les instructions [ici](http://docs.grafana.org/installation/debian/#apt-repository)
 - Lors de la commande d'installation, remplacer : 
 
-```bashell
+```bash
 sudo apt-get install grafana
 ```
 

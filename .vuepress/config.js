@@ -1,8 +1,12 @@
 const BACK_TO_HOME_TEXT = 'Home';
+const plugins = require('./config/plugins');
+const markdown = require('./config/markdown');
 
 module.exports = {
     title: 'Clément BERARD - Documentation',
     serviceWorker: true,
+    markdown,
+    plugins,
     themeConfig: {
         repo: "clement-berard/documentation-wiki",
         repoLabel: "Repo",
@@ -17,7 +21,7 @@ module.exports = {
         ],
         sidebarDepth: 0,
         sidebar: {
-            
+
             '/it/': [
                 ['/', BACK_TO_HOME_TEXT],
                 {
@@ -33,11 +37,7 @@ module.exports = {
                     title: 'SysAdmin',
                     collapsable: false,
                     children: [
-                        ['sysadmin/ssh', 'SSH'],
-                        ['sysadmin/docker', 'Docker'],
-                        ['sysadmin/server_web/', 'Web Server'],
-                        ['sysadmin/misc', 'Misc'],
-                        ['sysadmin/raspberry', 'Raspberry'],
+                        ['sysadmin/server', 'Server'],
                     ]
                 },
                 {
