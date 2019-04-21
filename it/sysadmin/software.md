@@ -1,13 +1,9 @@
 ---
-title: Raspberry
+title: Software
 lang: fr-FR
 ---
 
-# Raspberry
-
-[[toc]]
-
-## Software
+# Software
 
 - [Jeedom](./jeedom.md)
 - [Grafana](./grafana.md)

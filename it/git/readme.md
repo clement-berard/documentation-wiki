@@ -1,6 +1,6 @@
 # GIT
 
-[[toc]]
+<TOC :include-level="[2, Infinity]"/>
 
 ## Configurer le proxy sur GIT
 

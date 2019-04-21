@@ -1,6 +1,6 @@
 # Tools Nodejs
 
-[[toc]]
+<TOC :include-level="[2, Infinity]"/>
 
 ## NPM
 
