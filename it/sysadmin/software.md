@@ -8,6 +8,7 @@ lang: fr-FR
 - [Jeedom](./jeedom.md)
 - [Grafana](./grafana.md)
 - [InfluxDB](./influxdb.md)
+- [Verdaccio](./software/verdaccio.md)
 
 ## Configuration
 

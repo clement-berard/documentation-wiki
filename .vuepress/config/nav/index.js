@@ -14,8 +14,8 @@ const SysAdminChildren =  [
                 path: 'it/sysadmin/docker',
             },
             {
-                title: 'Web Server',
-                path: 'it/sysadmin/server_web/',
+                title: 'Linux',
+                path: 'it/sysadmin/linux/',
             },
             {
                 title: 'Misc',

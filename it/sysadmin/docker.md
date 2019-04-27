@@ -9,13 +9,27 @@ lang: fr-FR
 
 ## Cheat Sheet
 
-| What Do          | Command                                            |
-|------------------|----------------------------------------------------|
-| pull image       | `docker pull image_name:tag`                       |
-| create container | `docker create --name container_name image_name:tag` |
-|                  |                                                    |
+```bash 
+# pull image
+docker pull image_name:tag
 
-### Links Cheat
+# create container
+docker create --name container_name image_name:tag
+
+# ?
+docker rmi -f $(docker images | grep "^<none>" | awk '{print $"3"}')
+
+# remove all container (force)
+docker rm -f $(docker ps -a -q)
+
+# remove all images (force)
+docker rmi $(docker images -q)
+
+# run a container
+docker run -it -d dbb81800ec29 # where dbb81800ec29 is the ID of container
+```
+
+**Sources**
 
 - [Docker Commands and Best Practices Cheat Sheet](https://zeroturnaround.com/rebellabs/docker-commands-and-best-practices-cheat-sheet/)
 
@@ -93,12 +107,6 @@ Please make a tax deductable donation for a worthy cause: http://umdf.org/compas
 
 où `d171b8804f95` est l'ID du container
 
-### Afficher les container Docker actif
-
-```bash
-docker rmi -f $(docker images | grep "^<none>" | awk '{print $"3"}')
-```
-
 ## Useful links
 
 - [Le déploiement par conteneurs avec Docker | Sam & Max](http://sametmax.com/le-deploiement-par-conteneurs-avec-docker/)
@@ -108,20 +116,17 @@ docker rmi -f $(docker images | grep "^<none>" | awk '{print $"3"}')
 - [Publishing a Static AngularJS Application with Docker](http://rdn-consulting.com/blog/2014/11/29/publishing-a-static-angularjs-application-with-docker/)
 
 
-## MAJ 2019
+## Softs
 
-- Install Portainer : 
+### Portainer 
 
 ```bash 
 docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 ```
 
-https://blog.codeship.com/docker-guis/
+- https://blog.codeship.com/docker-guis/
 
-- Lancer un container : 
+## Useful links
 
-```bash 
-docker run -it -d dbb81800ec29
-```
-
-ou `dbb81800ec29` est l'ID de l'image
+- https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-debian-9
+- https://www.lacaveatonton.ovh/docker-dans-conteneur-lxc-sous-proxmox-5-2/
