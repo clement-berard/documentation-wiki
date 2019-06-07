@@ -5,6 +5,7 @@
 ## Pages
 
 - [Jeedom](./jeedom/readme.md)
+- [USB Key HUAWEI E3531](./huawei-e35x.md)
 
 ## Matériels
 
