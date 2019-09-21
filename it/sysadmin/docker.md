@@ -121,7 +121,7 @@ où `d171b8804f95` est l'ID du container
 ### Portainer 
 
 ```bash 
-docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+docker run -d --name portainer -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
 ```
 
 - https://blog.codeship.com/docker-guis/

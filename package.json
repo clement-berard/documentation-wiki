@@ -1,8 +1,8 @@
 {
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "1.0.3",
-    "@vuepress/plugin-medium-zoom": "1.0.3",
-    "vuepress": "1.0.3"
+    "@vuepress/plugin-back-to-top": "1.0.4",
+    "@vuepress/plugin-medium-zoom": "1.0.4",
+    "vuepress": "1.0.4"
   },
   "scripts": {
     "dev": "vuepress dev --temp .temp",
@@ -14,7 +14,7 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "vue-highlightjs": "^1.3.3",
-    "vue-json-pretty": "^1.6.0",
+    "vue-json-pretty": "^1.6.2",
     "vue-loaders": "^3.0.2",
     "vuepress-plugin-clean-urls": "^1.0.3"
   }
