@@ -2,6 +2,26 @@
 
 [[toc]]
 
+## Authentification basic
+
+ ```bash 
+ssh root@10.0.0.71 
+```
+
+Si tout ce passe bien, un mot de passe vous est demandé. Cependant si vous avez des jeux de
+clés private/public dans votre dossier `.ssh` cette erreur peut apparaitre: 
+
+```bash
+Received disconnect from 10.0.0.71 port 22:2: Too many authentication failures
+Disconnected from 10.0.0.71 port 22
+```
+
+Préférez alors l'authentification avec le mot de passe: 
+
+ ```bash 
+ssh -o PreferredAuthentications=password root@10.0.0.71
+```
+
 ## Authentification par clés 
 
 ### Création de la paire de clé
@@ -38,6 +58,12 @@ Il faut fournir au serveur notre clé publique. Pour ce faire, utiliser la comma
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa user@monserveur.com
+```
+
+Pour forcer la demande du mot de passe: 
+
+```bash
+ssh-copy-id -o PubkeyAuthentication=no -i ~/.ssh/id_rsa user@monserveur.com
 ```
 
 NB : Pour les utilisateurs de Mac OS X, `ssh-copy-id` n’existe pas par défaut, il faut l’installer avec brew `brew install ssh-copy-id`

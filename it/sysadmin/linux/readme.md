@@ -1,7 +1,7 @@
-# Serveur Web
+# Linux
 
 
-## Mini Tips
+## MiniTips
 
 **Simply add task at startup**
 
@@ -23,6 +23,42 @@ service bluetooth status
 ```
 
 http://debian-facile.org/doc:systeme:bluetooth
+
+## Fedora
+
+### Install a "Nightshift" like
+
+Install `redshift` package
+
+```bash
+sudo dnf install redshift
+```
+
+Add 2 functions to your `.bashrc`, `.zshrc` ...:
+
+```bash
+nightshift() {
+
+  currentPid=$(pgrep -f redshift)
+  
+  if [ ! -z "$currentPid" ]
+  then
+    kill "$currentPid"
+  fi
+
+  if [ -z "$1" ]
+  then
+    redshift -t 2500:2500 </dev/null &>/dev/null &;
+  else
+    redshift -t "$1":"$1" </dev/null &>/dev/null &; 
+  fi
+}
+
+stopnightshift() {
+   kill $(pgrep -f redshift)
+}
+```
+
 
 ## Self-Hosted
 
