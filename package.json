@@ -15,7 +15,7 @@
     "sass-loader": "^8.0.0",
     "vue-highlightjs": "^1.3.3",
     "vue-json-pretty": "^1.6.2",
-    "vue-loaders": "^3.0.2",
+    "vue-loaders": "^3.3.0",
     "vuepress-plugin-clean-urls": "^1.0.3"
   },
   "resolutions": {
